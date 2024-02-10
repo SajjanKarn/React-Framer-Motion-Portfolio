@@ -1,9 +1,12 @@
 import "./App.scss";
+import Navbar from "./navbar/navbar";
 
 export default function App() {
   return (
     <div>
-      <section>Hero</section>
+      <section>
+        <Navbar />
+      </section>
       <section>Parallax</section>
       <section>Services</section>
       <section>Parallax</section>
