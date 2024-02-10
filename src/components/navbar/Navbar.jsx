@@ -1,4 +1,6 @@
+import { motion } from "framer-motion";
 import "./navbar.scss";
+import Sidebar from "../sidebar/Sidebar";
 
 export default function Navbar() {
   const socialLinks = [
@@ -26,21 +28,31 @@ export default function Navbar() {
 
   return (
     <div className="navbar">
-      {/* sidebar */}
+      <Sidebar />
 
       <div className="wrapper">
-        <span className="navbar-brand">SAJJAN DEV</span>
+        <motion.span
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="navbar-brand"
+        >
+          SAJJAN DEV
+        </motion.span>
 
         <div className="socials">
           {socialLinks.map((social) => (
-            <a
+            <motion.a
               key={social.url}
               href={social.url}
               target="_blank"
               rel="noreferrer"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
             >
               <img src={social.icon} alt={social.name} />
-            </a>
+            </motion.a>
           ))}
         </div>
       </div>
